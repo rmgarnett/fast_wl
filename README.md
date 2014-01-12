@@ -1,11 +1,11 @@
-fast_wl
-=======
+Fast Weisfeiler--Lehman Transformation
+======================================
 
 A fast MATLAB implementation of the one-dimensional Weisfeiler--Lehman
 graph transformation and associated kernel. See the following paper
 for further information:
 > Shervashidze, N., Schweitzer, P. van Leeuwen, E.J., Mehlhorn, K.,
-> and Borgward, K.M. "Weisfeiler-Lehman graph kernels." (2010).
+> and Borgward, K.M. "Weisfeiler--Lehman graph kernels." (2010).
 > Journal of Machine Learning Research 12(Sep):2539--2561.
 
 This implementation uses a fast perfect hash for performing the
