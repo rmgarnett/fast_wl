@@ -46,6 +46,7 @@ function new_labels = wl_transformation(A, labels)
 
   signatures = labels + A * log_primes(labels);
 
+  % map signatures to integers counting from 1
   [~, ~, new_labels] = unique(signatures);
 
 end
