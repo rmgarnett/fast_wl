@@ -1,9 +1,13 @@
 % Perform the one-dimensional Weisfeiler--Lehman (WL) transformation
-% on a labeled graph G using a fast perfect hash.
+% on a labeled graph G using a fast perfect hash; see
+%
+%   Kersting, K., Mladenov, M., Garnett, R., and Grohe, M. Power
+%   Iterated Color Refinement. (2014). AAAI Conference on Artificial
+%   Intelligence (AAAI 2014).
 %
 % Consider a node x in G, and let l(x) and N(x) represent the label of
-% x and neighborhood of x, respectively.  Let p(i) represent the ith
-% prime.  The hash for x is given by
+% x and neighborhood of x, respectively. Let p(i) represent the ith
+% prime. The hash for x is given by
 %
 %   h(x) = l(x) + \sum_{y \in N(x)} log(p(l(y)))
 %
@@ -13,22 +17,26 @@
 %   - l(x) = l(y)
 %   - N(x) and N(y) contain the same labels with the same cardinality,
 %
-% that is, h(x) gives unique values to unique WL signatures.  The
-% use of h(x) is much faster than the typical string hashes used
-% for completing the WL transformation.
+% that is, h(x) gives unique values to unique WL signatures. The use
+% of h(x) is much faster than the typical string hashes used for
+% completing the WL transformation.
 %
-% function new_labels = wl_transformation(A, labels)
+% Usage:
 %
-% inputs:
-%        A: an unweighted adjacency matrix for G.  If possible, A
+%   function new_labels = wl_transformation(A, labels)
+%
+% Inputs:
+%
+%        A: an unweighted adjacency matrix for G. If possible, A
 %           should be a sparse matrix; e.g., sparse(A > 0).
 %   labels: a vector of integer node labels
 %
-% outputs:
+% Outputs:
+%
 %   new_labels: a vector containing the new compressed labels after
 %               one step of the 1d WL transformation
 %
-% Copyright (c) Roman Garnett, 2013--2014
+% Copyright (c) 2013--2014 Roman Garnett.
 
 function new_labels = wl_transformation(A, labels)
 
