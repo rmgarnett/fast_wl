@@ -1,5 +1,8 @@
-% Perform the one-dimensional Weisfeiler--Lehman (WL) transformation
-% on a labeled graph G using a fast perfect hash; see
+% WL_TRANSFORMATION computes the 1d WL transformation on a labeled graph.
+%
+% This is an implementation of the one-dimensional Weisfeiler--Lehman
+% (WL) transformation on a labeled graph G using a fast perfect hash;
+% for more details, see
 %
 %   Kersting, K., Mladenov, M., Garnett, R., and Grohe, M. Power
 %   Iterated Color Refinement. (2014). AAAI Conference on Artificial
@@ -23,7 +26,7 @@
 %
 % Usage:
 %
-%   function new_labels = wl_transformation(A, labels)
+%   new_labels = wl_transformation(A, labels)
 %
 % Inputs:
 %
@@ -36,6 +39,8 @@
 %   new_labels: a vector containing the new compressed labels after
 %               one step of the 1d WL transformation
 %
+% See also WL_KERNEL.
+
 % Copyright (c) 2013--2014 Roman Garnett.
 
 function new_labels = wl_transformation(A, labels)

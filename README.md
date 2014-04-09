@@ -2,10 +2,18 @@ Fast Weisfeiler--Lehman Transformation
 ======================================
 
 A fast MATLAB implementation of the one-dimensional Weisfeiler--Lehman
-graph transformation and associated kernel. See the following paper
-for further information:
+graph transformation and associated kernel.
+
+For more details about the fast hashing-based algorithm used, see the
+following paper:
+> Kersting, K., Mladenov, M., Garnett, R., and Grohe, M. Power
+> Iterated Color Refinement. (2014). AAAI Conference on Artificial
+> Intelligence (AAAI 2014).
+
+For more details about the Weisfeiler--Lehman graph kernel, see
+the following paper:
 > Shervashidze, N., Schweitzer, P. van Leeuwen, E.J., Mehlhorn, K.,
-> and Borgward, K.M. "Weisfeiler--Lehman graph kernels." (2010).
+> and Borgward, K.M. Weisfeiler--Lehman graph kernels. (2010).
 > Journal of Machine Learning Research 12(Sep):2539--2561.
 
 This implementation uses a fast perfect hash for performing the
