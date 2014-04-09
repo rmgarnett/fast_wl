@@ -59,6 +59,9 @@ function new_labels = wl_transformation(A, labels)
 
   signatures = labels + A * log_primes(labels);
 
+  % ignore differences beyond the 10th decimal place
+  signatures = round(signatures * 1e10);
+
   % map signatures to integers counting from 1
   [~, ~, new_labels] = unique(signatures);
 
