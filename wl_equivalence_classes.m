@@ -48,7 +48,7 @@ function equivalence_classes = wl_equivalence_classes(A, labels)
   equivalence_classes = zeros(size(labels));
 
   % iterate WL transformation until stability
-  while (any(labels ~= equivalence_classes))
+  while (~isequal(labels, equivalence_classes))
     equivalence_classes = labels;
     labels = wl_transformation(A, labels);
   end
