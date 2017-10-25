@@ -41,12 +41,12 @@
 %
 % See also WL_KERNEL.
 
-% Copyright (c) 2013--2014 Roman Garnett.
+% Copyright (c) 2013--2017 Roman Garnett.
 
 function new_labels = wl_transformation(A, labels)
 
   % the ith entry is equal to the 2^(i-1)'th prime
-  primes_arguments_required = [2, 3, 7, 19, 53, 131, 311, 719, 1619, ...
+  primes_arguments_required = [2, 3, 7, 19, 53, 131, 311, 719, 1619,   ...
                       3671, 8161, 17863, 38873, 84017, 180503, 386093, ...
                       821641, 1742537, 3681131, 7754077, 16290047];
 
@@ -59,10 +59,7 @@ function new_labels = wl_transformation(A, labels)
 
   signatures = labels + A * log_primes(labels);
 
-  % ignore differences beyond the 10th decimal place
-  signatures = round(signatures * 1e10);
-
   % map signatures to integers counting from 1
-  [~, ~, new_labels] = unique(signatures);
+  [~, ~, new_labels] = uniquetol(signatures);
 
 end
