@@ -36,7 +36,7 @@
 %
 % See also WL_TRANSFORMATION.
 
-% Copyright (c) 2014 Roman Garnett.
+% Copyright (c) 2014--2017 Roman Garnett.
 
 function equivalence_classes = wl_equivalence_classes(A, labels)
 
@@ -48,9 +48,34 @@ function equivalence_classes = wl_equivalence_classes(A, labels)
   equivalence_classes = zeros(size(labels));
 
   % iterate WL transformation until stability
-  while (~isequal(labels, equivalence_classes))
+  while (~is_equivalent(labels, equivalence_classes))
     equivalence_classes = labels;
     labels = wl_transformation(A, labels);
   end
+
+end
+
+% checks whether two labelings are equivalent under permutation
+function x = is_equivalent(labels_1, labels_2)
+
+  % until proven otherwise
+  x = false;
+
+  m = max(labels_1);
+
+  % different number of labels
+  if (m ~= max(labels_2))
+    return;
+  end
+
+  % check whether every equivalence class remains unchanged
+  for i = 1:m
+    y = labels_2(labels_1 == i);
+    if (any(y(1) ~= y))
+      return;
+    end
+  end
+
+  x = true;
 
 end
